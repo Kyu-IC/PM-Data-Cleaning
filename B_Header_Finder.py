@@ -1,6 +1,14 @@
 import pandas as pd
+from pathlib import Path
 
-df_raw = pd.read_excel("Output\แผนการปฎิบัติงาน (QTY).xlsx")
+FILE_NAME = "แผนการปฎิบัติงาน (QTY).xlsx"
+BASE_DIR = Path(__file__).resolve().parent
+INPUT_PATH = BASE_DIR / "Output" / FILE_NAME
+
+print(INPUT_PATH)
+
+
+df_raw = pd.read_excel(INPUT_PATH)
 
 header_row_idx = None
 for i, row in df_raw.iterrows():
@@ -20,5 +28,7 @@ if header_row_idx is not None:
 else:
     print("ไม่พบแถวที่มีคำว่า 'ลำดับ'")
 
+df = df.dropna(axis=1, how='all')
+df.to_excel(f"Output/output.xlsx", index=False)
 
-df.to_excel("output.xlsx")
+

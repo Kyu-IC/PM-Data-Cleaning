@@ -1,8 +1,9 @@
 from pathlib import Path
 import xlwings as xw
 
+FILE_NAME = "MASTER PLAN แผนขั้นตอนและผลการปฏิบัติงาน.xlsx"
 BASE_DIR = Path(__file__).parent
-EXCEL_FILE = BASE_DIR / "MASTER PLAN แผนขั้นตอนและผลการปฏิบัติงาน.xlsx"
+EXCEL_FILE = BASE_DIR / f"Input/{FILE_NAME}"
 OUTPUT_DIR = BASE_DIR / "Output"
 
 
