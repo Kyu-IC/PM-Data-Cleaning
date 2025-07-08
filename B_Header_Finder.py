@@ -30,5 +30,3 @@ else:
 
 df = df.dropna(axis=1, how='all')
 df.to_excel(f"Output/output.xlsx", index=False)
-
-
